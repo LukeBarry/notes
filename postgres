@@ -1,0 +1,51 @@
+$ sudo service postgresql start
+ * Starting PostgreSQL 9.3 database server
+   ...done.
+   
+$ sudo sudo -u postgres createuser ubuntu --interactive
+Shall the new role be a superuser? (y/n) n
+Shall the new role be allowed to create databases? (y/n) y
+Shall the new role be allowed to create more new roles? (y/n) n
+
+createdb ubuntu
+
+
+$ psql
+psql (9.3.7)
+Type "help" for help.
+
+ubuntu=#
+
+
+ubuntu=> \password        # how do i log back in????
+
+ubuntu=# \deu+                         # identify users
+      List of user mappings
+ Server | User name | FDW Options 
+--------+-----------+-------------
+(0 rows)
+
+ubuntu=# \du                            # identify users
+
+Enter new password: (type in "thinkful" as the password)
+Enter it again: (type in "thinkful" again)
+ubuntu=> \q
+
+$ createdb snippets
+
+# Creating the table
+create table snippets (
+keyword text primary key,
+message text not null default ''
+);
+
+\r changed '# to =#
+
+ctrl d exit out of all
+
+ctrl c to break out of it
+
+select * from snippets;    # shows the table
+
+
+
